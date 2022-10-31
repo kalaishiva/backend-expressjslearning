@@ -9,7 +9,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
     res.send('Hello World!...Node JS camp 1.0')
 
     res.status(200).send("Hello Kalai");
@@ -42,11 +42,24 @@ app.get('/v1/twitter', (req, res) => {
     res.status(200).json({ twitter });
 });
 
-
+ */
 //.../ api/v1/kalai
-app.get('/api/v1/:token', (req, res) => {
-    console.log(req.params.token);
-    res.status(200).json({ param: req.params.token });
+//typed in url(value===req.params.token) is get in the name(key)
+/* app.get('/api/v1/:id', (req, res) => {
+    // console.log(req.params.token);
+    // console.log(req.params.id);
+    //res.status(200).json({ name: req.params.token });
+    //res.status(200).json({ id: req.params.id });
+
+    res.render(index);
+
+}) */
+//have to set the view engine
+app.set('view engine', 'ejs');
+
+app.get('/hello', (req, res) => {
+    res.render('index', { text: 'world' });
+    res.render('index', { text123: 'Family' });
 })
 
 app.listen(port, () => {
