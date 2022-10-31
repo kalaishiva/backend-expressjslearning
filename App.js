@@ -55,18 +55,31 @@ app.get('/v1/twitter', (req, res) => {
 
 }) */
 
+
+//rendering a static file
+app.use(express.static('public'))
+
+
+
 //rendering a file 
 
 //have to set the view engine
 app.set('view engine', 'ejs');
+app.use(logger);
 
 app.get('/', (req, res) => {
-    res.render('index', { text: 'world' });
-    res.render('index', { text123: 'Family' });
+    res.render('index' /* , { text: 'world' } */ );
+    res.render('index' /* , { text123: 'Family' } */ );
 })
 
 const userRouter = require('./routes/users');
 app.use('/users', userRouter)
+
+//creating middleware
+function logger(req, res, next) {
+    console.log(`Gives the URL ` + req.originalUrl);
+    next()
+}
 
 app.listen(port, () => {
     console.log(`I am  listening on port ${port}`)
