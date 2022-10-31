@@ -54,6 +54,9 @@ app.get('/v1/twitter', (req, res) => {
     res.render(index);
 
 }) */
+
+//rendering a file 
+
 //have to set the view engine
 app.set('view engine', 'ejs');
 
