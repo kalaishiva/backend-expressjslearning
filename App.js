@@ -60,7 +60,7 @@ app.get('/v1/twitter', (req, res) => {
 //have to set the view engine
 app.set('view engine', 'ejs');
 
-app.get('/hello', (req, res) => {
+app.get('/', (req, res) => {
     res.render('index', { text: 'world' });
     res.render('index', { text123: 'Family' });
 })
