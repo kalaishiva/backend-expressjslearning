@@ -65,6 +65,9 @@ app.get('/hello', (req, res) => {
     res.render('index', { text123: 'Family' });
 })
 
+const userRouter = require('./routes/users');
+app.use('/users', userRouter)
+
 app.listen(port, () => {
     console.log(`I am  listening on port ${port}`)
 });
