@@ -18,7 +18,7 @@ routers.post('/', (req, res) => {
 
 routers.route('/:userId')
     .get((req, res) => {
-        console.log('hi ' + req.user);
+        console.log(req.user);
         res.send(`Get User with ID ${req.params.userId}`)
     })
     .put((req, res) => {
@@ -33,8 +33,11 @@ routers.route('/:userId')
 
 const users = [{ name: 'Kalai' }, { name: 'Shivani' }];
 
-routers.param('id', (req, res, next, id) => {
-    req.user = users[id]
+routers.param('userId', (req, res, next, id) => {
+
+    req.user = users[id];
+    console.log(users[id]);
+
     next()
 })
 
